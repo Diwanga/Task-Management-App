@@ -1,0 +1,83 @@
+.task-form-container {
+  .form-card {
+    margin-top: 24px;
+    padding: 24px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-row {
+        display: flex;
+        gap: 16px;
+
+        .half-width {
+          flex: 1;
+        }
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      .tags-section {
+        mat-label {
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.6);
+          margin-bottom: 8px;
+        }
+
+        ::ng-deep .mat-chip-list-wrapper {
+          margin: 0;
+
+          .mat-standard-chip {
+            background-color: #e0e0e0;
+            color: rgba(0, 0, 0, 0.87);
+          }
+
+          input {
+            border: none;
+            outline: none;
+            padding: 8px;
+            font-size: 14px;
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid #e0e0e0;
+
+        button[type="submit"] {
+          min-width: 120px;
+
+          mat-spinner {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .task-form-container {
+    .form-card {
+      padding: 16px;
+
+      form {
+        .form-row {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}

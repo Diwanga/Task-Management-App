@@ -1,0 +1,47 @@
+.dashboard-container {
+  .welcome-section {
+    margin-bottom: 32px;
+
+    .welcome-title {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .welcome-subtitle {
+      margin: 0;
+      font-size: 16px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .dashboard-container {
+    .welcome-section {
+      .welcome-title {
+        font-size: 24px;
+      }
+
+      .welcome-subtitle {
+        font-size: 14px;
+      }
+    }
+
+    .action-buttons {
+      button {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  }
+}

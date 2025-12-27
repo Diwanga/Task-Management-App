@@ -1,1 +1,26 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+  <!-- Navigation menu -->
+  <nav class="sidebar-nav">
+    <mat-nav-list>
+      <mat-list-item
+        *ngFor="let item of menuItems"
+        [class.active]="isActive(item.route)"
+        (click)="navigate(item.route)"
+        class="nav-item">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
+        <span
+          *ngIf="item.badge"
+          matListItemMeta
+          class="badge">
+          {{ item.badge }}
+        </span>
+      </mat-list-item>
+    </mat-nav-list>
+  </nav>
+
+  <!-- Sidebar footer (optional) -->
+  <div class="sidebar-footer">
+    <p class="footer-text">Task Manager v1.0</p>
+  </div>
+</div>

@@ -1,1 +1,14 @@
 <p>loading-spinner works!</p>
+<!-- Loading spinner with optional overlay -->
+<div class="loading-container" [class.overlay]="overlay">
+  <div class="spinner-wrapper">
+    <!-- Material spinner -->
+    <mat-spinner
+      [diameter]="getSpinnerDiameter()"
+      [color]="color">
+    </mat-spinner>
+
+    <!-- Loading message -->
+    <p class="loading-message" *ngIf="message">{{ message }}</p>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+mat-dialog-content {
+  p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+mat-dialog-actions {
+  margin-top: 16px;
+  padding: 8px 0;
+
+  button {
+    margin-left: 8px;
+  }
+}

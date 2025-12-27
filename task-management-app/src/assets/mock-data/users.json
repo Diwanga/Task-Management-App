@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "username": "admin",
+      "firstName": "Admin",
+      "lastName": "User",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "phone": "+1234567890",
+      "department": "Management",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ]
+}

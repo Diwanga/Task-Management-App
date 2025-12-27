@@ -1,0 +1,175 @@
+.task-detail-container {
+  .detail-card {
+    margin-top: 24px;
+
+    .badges-section {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 0;
+
+      .status-badge,
+      .priority-badge,
+      .overdue-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 16px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      .status-badge {
+        &.status-todo {
+          background-color: #e3f2fd;
+          color: #1976d2;
+        }
+
+        &.status-in-progress {
+          background-color: #fff3e0;
+          color: #f57c00;
+        }
+
+        &.status-done {
+          background-color: #e8f5e9;
+          color: #388e3c;
+        }
+      }
+
+      .priority-badge {
+        &.priority-low {
+          background-color: #e8f5e9;
+          color: #388e3c;
+        }
+
+        &.priority-medium {
+          background-color: #fff9c4;
+          color: #f57f17;
+        }
+
+        &.priority-high {
+          background-color: #ffe0b2;
+          color: #e64a19;
+        }
+
+        &.priority-urgent {
+          background-color: #ffebee;
+          color: #c62828;
+        }
+      }
+
+      .overdue-badge {
+        background-color: #ffebee;
+        color: #c62828;
+        gap: 4px;
+
+        mat-icon {
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    .detail-section {
+      padding: 24px 0;
+
+      .section-title {
+        margin: 0 0 16px;
+        font-size: 18px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .description-text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(0, 0, 0, 0.87);
+        white-space: pre-wrap;
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+
+        .info-item {
+          display: flex;
+          gap: 12px;
+
+          .info-icon {
+            color: rgba(0, 0, 0, 0.54);
+            flex-shrink: 0;
+          }
+
+          .info-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            .info-label {
+              font-size: 12px;
+              font-weight: 500;
+              color: rgba(0, 0, 0, 0.6);
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+            }
+
+            .info-value {
+              font-size: 14px;
+              color: rgba(0, 0, 0, 0.87);
+
+              &.overdue-text {
+                color: #c62828;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      .tags-container {
+        ::ng-deep .mat-chip-list-wrapper {
+          gap: 8px;
+        }
+      }
+    }
+  }
+
+  .no-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 64px 24px;
+    gap: 24px;
+
+    mat-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      color: rgba(0, 0, 0, 0.38);
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .task-detail-container {
+    .detail-card {
+      .detail-section {
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}

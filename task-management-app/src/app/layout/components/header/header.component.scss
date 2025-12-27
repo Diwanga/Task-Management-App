@@ -1,0 +1,160 @@
+.header-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+
+      .brand-icon {
+        font-size: 28px;
+        width: 28px;
+        height: 28px;
+      }
+
+      .brand-name {
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .notification-button {
+        margin-right: 8px;
+      }
+
+      .user-menu-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 12px;
+        border-radius: 24px;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          overflow: hidden;
+          background-color: rgba(255, 255, 255, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .avatar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .avatar-initials {
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+          }
+        }
+
+        .user-name {
+          font-size: 14px;
+          font-weight: 400;
+          max-width: 150px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+// User dropdown menu styles
+::ng-deep .user-dropdown {
+  .user-info {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    .user-avatar-large {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      span {
+        font-size: 18px;
+        font-weight: 500;
+        color: #666;
+      }
+    }
+
+    .user-details {
+      flex: 1;
+
+      .user-name-large {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
+      }
+
+      .user-email {
+        margin: 4px 0 0;
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .header-toolbar .header-container {
+    .header-brand {
+      .brand-name {
+        display: none;
+      }
+    }
+
+    .header-actions {
+      .user-menu-button {
+        .user-name {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,38 @@
-<p>footer works!</p>
+<footer class="app-footer">
+  <div class="footer-container">
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>&copy; {{ currentYear }} Task Manager. All rights reserved.</p>
+    </div>
+
+    <!-- Footer links -->
+    <div class="footer-links">
+      <a href="javascript:void(0)" class="footer-link">About</a>
+      <a href="javascript:void(0)" class="footer-link">Privacy Policy</a>
+      <a href="javascript:void(0)" class="footer-link">Terms of Service</a>
+      <a href="javascript:void(0)" class="footer-link">Contact</a>
+    </div>
+
+    <!-- Social links -->
+    <div class="footer-social">
+      <button
+        mat-icon-button
+        (click)="openLink('https://github.com')"
+        aria-label="GitHub">
+        <mat-icon>code</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="openLink('https://twitter.com')"
+        aria-label="Twitter">
+        <mat-icon>chat</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="openLink('https://linkedin.com')"
+        aria-label="LinkedIn">
+        <mat-icon>work</mat-icon>
+      </button>
+    </div>
+  </div>
+</footer>

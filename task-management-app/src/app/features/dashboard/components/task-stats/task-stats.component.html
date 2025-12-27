@@ -1,1 +1,76 @@
-<p>task-stats works!</p>
+<div class="stats-container">
+  <!-- Loading state -->
+  <app-loading-spinner
+    *ngIf="loading"
+    [message]="'Loading statistics...'">
+  </app-loading-spinner>
+
+  <!-- Stats cards -->
+  <div class="stats-grid" *ngIf="!loading && stats">
+    <!-- Total Tasks -->
+    <mat-card class="stat-card total-card" (click)="navigateToTasks()">
+      <div class="stat-icon">
+        <mat-icon>task</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.total }}</h3>
+        <p class="stat-label">Total Tasks</p>
+      </div>
+    </mat-card>
+
+    <!-- To Do Tasks -->
+    <mat-card class="stat-card todo-card" (click)="navigateToTasks({ status: 'TODO' })">
+      <div class="stat-icon">
+        <mat-icon>pending_actions</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.todo }}</h3>
+        <p class="stat-label">To Do</p>
+      </div>
+    </mat-card>
+
+    <!-- In Progress Tasks -->
+    <mat-card class="stat-card progress-card" (click)="navigateToTasks({ status: 'IN_PROGRESS' })">
+      <div class="stat-icon">
+        <mat-icon>hourglass_empty</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.inProgress }}</h3>
+        <p class="stat-label">In Progress</p>
+      </div>
+    </mat-card>
+
+    <!-- Done Tasks -->
+    <mat-card class="stat-card done-card" (click)="navigateToTasks({ status: 'DONE' })">
+      <div class="stat-icon">
+        <mat-icon>check_circle</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.done }}</h3>
+        <p class="stat-label">Completed</p>
+      </div>
+    </mat-card>
+
+    <!-- Overdue Tasks -->
+    <mat-card class="stat-card overdue-card" (click)="navigateToTasks({ overdue: true })">
+      <div class="stat-icon">
+        <mat-icon>warning</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.overdue }}</h3>
+        <p class="stat-label">Overdue</p>
+      </div>
+    </mat-card>
+
+    <!-- Due Today -->
+    <mat-card class="stat-card today-card" (click)="navigateToTasks({ dueToday: true })">
+      <div class="stat-icon">
+        <mat-icon>today</mat-icon>
+      </div>
+      <div class="stat-content">
+        <h3 class="stat-value">{{ stats.dueToday }}</h3>
+        <p class="stat-label">Due Today</p>
+      </div>
+    </mat-card>
+  </div>
+</div>

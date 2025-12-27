@@ -1,1 +1,47 @@
-<p>dashboard-overview works!</p>
+<div class="dashboard-container">
+  <!-- Welcome header -->
+  <div class="welcome-section">
+    <h1 class="welcome-title">
+      Welcome back, {{ currentUser?.firstName }}!
+    </h1>
+    <p class="welcome-subtitle">
+      Here's what's happening with your tasks today
+    </p>
+  </div>
+
+  <!-- Action buttons -->
+  <div class="action-buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="createTask()">
+      <mat-icon>add</mat-icon>
+      New Task
+    </button>
+    <button
+      mat-raised-button
+      (click)="goToTasks()">
+      <mat-icon>list</mat-icon>
+      View All Tasks
+    </button>
+    <button
+      mat-icon-button
+      (click)="refresh()"
+      matTooltip="Refresh">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+
+  <!-- Task Statistics -->
+  <app-task-stats
+    [stats]="taskStats"
+    [loading]="loading">
+  </app-task-stats>
+
+  <!-- Recent Tasks -->
+  <app-recent-tasks
+    [tasks]="recentTasks"
+    [loading]="loading"
+    (taskClick)="viewTask($event)">
+  </app-recent-tasks>
+</div>

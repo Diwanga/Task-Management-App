@@ -1,1 +1,84 @@
-<p>header works!</p>
+<mat-toolbar color="primary" class="header-toolbar">
+  <div class="header-container">
+    <!-- Logo and app name -->
+    <div class="header-brand">
+      <mat-icon class="brand-icon">task_alt</mat-icon>
+      <span class="brand-name">Task Manager</span>
+    </div>
+
+    <!-- Spacer -->
+    <span class="spacer"></span>
+
+    <!-- Right side actions -->
+    <div class="header-actions">
+      <!-- Notifications -->
+      <button
+        mat-icon-button
+        class="notification-button"
+        [matBadge]="3"
+        matBadgeColor="warn"
+        matBadgeSize="small"
+        aria-label="Notifications">
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <!-- User menu -->
+      <button
+        mat-button
+        [matMenuTriggerFor]="userMenu"
+        class="user-menu-button">
+        <!-- User avatar -->
+        <div class="user-avatar">
+          <!-- FIX: Add ?. safe navigation -->
+          <img
+            *ngIf="currentUser?.avatar"
+            [src]="currentUser?.avatar"
+            [alt]="userFullName"
+            class="avatar-image">
+          <span *ngIf="!currentUser?.avatar" class="avatar-initials">
+            {{ userInitials }}
+          </span>
+        </div>
+        <span class="user-name">{{ userFullName }}</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <!-- User dropdown menu -->
+      <mat-menu #userMenu="matMenu" class="user-dropdown">
+        <div class="user-info">
+          <div class="user-avatar-large">
+            <!-- FIX: Add ?. safe navigation -->
+            <img
+              *ngIf="currentUser?.avatar"
+              [src]="currentUser?.avatar"
+              [alt]="userFullName">
+            <span *ngIf="!currentUser?.avatar">{{ userInitials }}</span>
+          </div>
+          <div class="user-details">
+            <p class="user-name-large">{{ userFullName }}</p>
+            <p class="user-email">{{ currentUser?.email }}</p>
+          </div>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item (click)="goToProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+
+        <button mat-menu-item (click)="goToSettings()">
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,4 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Main Stylesheet
+ * Imports all global styles
+ */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Import variables and mixins first
+@import 'styles/variables';
+@import 'styles/mixins';
+
+// Import reset
+@import 'styles/reset';
+
+// Import Material theme
+@import 'styles/themes';
+
+// Import component styles
+@import 'styles/components';
+
+// Global styles
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: $background-color;
+  color: $text-primary;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-medium;
+  line-height: 1.2;
+}
+
+h1 { font-size: $font-size-xxxl; }
+h2 { font-size: $font-size-xxl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+h5 { font-size: $font-size-md; }
+h6 { font-size: $font-size-base; }
+
+p {
+  line-height: 1.6;
+  margin-bottom: $spacing-md;
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// Code
+code {
+  font-family: 'Courier New', monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: $border-radius-sm;
+  font-size: 0.9em;
+}
+
+// Print styles
+@media print {
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}

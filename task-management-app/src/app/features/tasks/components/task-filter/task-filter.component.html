@@ -1,1 +1,85 @@
-<p>task-filter works!</p>
+<div class="filter-container">
+  <!-- Filter toggle button -->
+  <div class="filter-header">
+    <button
+      mat-stroked-button
+      (click)="toggleFilters()">
+      <mat-icon>filter_list</mat-icon>
+      Filters
+      <mat-icon class="toggle-icon">
+        {{ showFilters ? 'expand_less' : 'expand_more' }}
+      </mat-icon>
+    </button>
+
+    <!-- Clear filters button (shown when filters are active) -->
+    <button
+      *ngIf="hasActiveFilters()"
+      mat-button
+      color="warn"
+      (click)="clearFilters()">
+      <mat-icon>clear</mat-icon>
+      Clear Filters
+    </button>
+  </div>
+
+  <!-- Filter form (collapsible) -->
+  <div class="filter-panel" *ngIf="showFilters">
+    <form [formGroup]="filterForm" class="filter-form">
+      <div class="filter-row">
+        <!-- Search -->
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Search</mat-label>
+          <input
+            matInput
+            formControlName="searchText"
+            placeholder="Search tasks...">
+          <mat-icon matPrefix>search</mat-icon>
+        </mat-form-field>
+
+        <!-- Status filter -->
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status" multiple>
+            <mat-option *ngFor="let status of statuses" [value]="status">
+              {{ status.replace('_', ' ') }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Priority filter -->
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority" multiple>
+            <mat-option *ngFor="let priority of priorities" [value]="priority">
+              {{ priority }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="filter-row">
+        <!-- Due date from -->
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Due Date From</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerFrom"
+            formControlName="dueDateFrom">
+          <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </mat-form-field>
+
+        <!-- Due date to -->
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>Due Date To</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerTo"
+            formControlName="dueDateTo">
+          <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</div>

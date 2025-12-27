@@ -1,0 +1,51 @@
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+
+  .content-container {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+
+    .sidenav {
+      width: 260px;
+      border-right: none;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+
+      .content-wrapper {
+        flex: 1;
+        padding: 24px;
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .menu-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .main-layout {
+    .content-container {
+      .main-content {
+        .content-wrapper {
+          padding: 16px;
+        }
+      }
+    }
+  }
+}

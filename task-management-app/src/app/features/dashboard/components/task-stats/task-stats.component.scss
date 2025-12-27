@@ -1,0 +1,128 @@
+.stats-container {
+  margin-bottom: 32px;
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+
+    .stat-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .stat-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon {
+          font-size: 28px;
+          width: 28px;
+          height: 28px;
+          color: white;
+        }
+      }
+
+      .stat-content {
+        flex: 1;
+
+        .stat-value {
+          margin: 0;
+          font-size: 32px;
+          font-weight: 600;
+          line-height: 1;
+        }
+
+        .stat-label {
+          margin: 4px 0 0;
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+
+      // Card-specific colors
+      &.total-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .stat-value {
+          color: #667eea;
+        }
+      }
+
+      &.todo-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+        }
+        .stat-value {
+          color: #2196f3;
+        }
+      }
+
+      &.progress-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        }
+        .stat-value {
+          color: #ff9800;
+        }
+      }
+
+      &.done-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+        }
+        .stat-value {
+          color: #4caf50;
+        }
+      }
+
+      &.overdue-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+        }
+        .stat-value {
+          color: #f44336;
+        }
+      }
+
+      &.today-card {
+        .stat-icon {
+          background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+        }
+        .stat-value {
+          color: #9c27b0;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .stats-container {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,1 +1,76 @@
-<p>recent-tasks works!</p>
+<div class="recent-tasks-container">
+  <mat-card class="recent-tasks-card">
+    <!-- Card header -->
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>history</mat-icon>
+        Recent Tasks
+      </mat-card-title>
+    </mat-card-header>
+
+    <!-- Loading state -->
+    <mat-card-content *ngIf="loading">
+      <app-loading-spinner [message]="'Loading recent tasks...'"></app-loading-spinner>
+    </mat-card-content>
+
+    <!-- Task list -->
+    <mat-card-content *ngIf="!loading && tasks.length > 0">
+      <mat-list class="task-list">
+        <mat-list-item
+          *ngFor="let task of tasks; let last = last"
+          class="task-item"
+          (click)="onTaskClick(task)">
+          <!-- Status icon -->
+          <mat-icon
+            matListItemIcon
+            [ngClass]="task.status | statusColor: 'status'">
+            {{ getStatusIcon(task.status) }}
+          </mat-icon>
+
+          <!-- Task content -->
+          <div matListItemTitle class="task-title">
+            <span [class.overdue]="isOverdue(task)">
+              {{ task.title | truncate:50 }}
+            </span>
+            <mat-icon
+              *ngIf="isOverdue(task)"
+              class="overdue-icon"
+              matTooltip="Overdue">
+              warning
+            </mat-icon>
+          </div>
+
+          <div matListItemLine class="task-meta">
+            <!-- Priority badge -->
+            <span
+              class="priority-badge"
+              [ngClass]="getPriorityClass(task.priority)">
+              {{ task.priority }}
+            </span>
+
+            <!-- Due date -->
+            <span class="due-date" *ngIf="task.dueDate">
+              <mat-icon>event</mat-icon>
+              {{ task.dueDate | date: 'MMM dd' }}
+            </span>
+
+            <!-- Time ago -->
+            <span class="time-ago">
+              {{ task.updatedAt | dateAgo }}
+            </span>
+          </div>
+
+          <mat-divider *ngIf="!last"></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+
+    <!-- Empty state -->
+    <mat-card-content *ngIf="!loading && tasks.length === 0">
+      <div class="empty-state">
+        <mat-icon>inbox</mat-icon>
+        <p>No recent tasks</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

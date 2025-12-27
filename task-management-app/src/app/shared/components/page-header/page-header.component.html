@@ -1,1 +1,24 @@
-<p>page-header works!</p>
+<div class="page-header">
+  <div class="header-content">
+    <!-- Back button (optional) -->
+    <button
+      *ngIf="showBackButton"
+      mat-icon-button
+      class="back-button"
+      (click)="onBackClick()"
+      aria-label="Go back">
+      <mat-icon>{{ backIcon }}</mat-icon>
+    </button>
+
+    <!-- Title and subtitle -->
+    <div class="header-text">
+      <h1 class="page-title">{{ title }}</h1>
+      <p *ngIf="subtitle" class="page-subtitle">{{ subtitle }}</p>
+    </div>
+
+    <!-- Action buttons (projected content) -->
+    <div class="header-actions">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

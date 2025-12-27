@@ -1,0 +1,54 @@
+.filter-container {
+  margin-bottom: 24px;
+
+  .filter-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .toggle-icon {
+      margin-left: 4px;
+    }
+  }
+
+  .filter-panel {
+    padding: 24px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+
+    .filter-form {
+      .filter-row {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .filter-field {
+          flex: 1;
+          min-width: 200px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .filter-container {
+    .filter-panel {
+      .filter-form {
+        .filter-row {
+          flex-direction: column;
+
+          .filter-field {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

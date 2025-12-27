@@ -1,62 +1,120 @@
+// /**
+//  * API endpoints and configuration
+//  */
+//
+// /**
+//  * Base API URL - will be set from environment
+//  */
+// export const API_BASE_URL = '/api';
+//
+// /**
+//  * API version
+//  */
+// export const API_VERSION = 'v1';
+//
+// /**
+//  * Full API path
+//  */
+// export const API_PATH = `${API_BASE_URL}/${API_VERSION}`;
+//
+// /**
+//  * Authentication endpoints
+//  */
+// export const AUTH_ENDPOINTS = {
+//   LOGIN: `${API_PATH}/auth/login`,
+//   REGISTER: `${API_PATH}/auth/register`,
+//   LOGOUT: `${API_PATH}/auth/logout`,
+//   REFRESH_TOKEN: `${API_PATH}/auth/refresh`,
+//   FORGOT_PASSWORD: `${API_PATH}/auth/forgot-password`,
+//   RESET_PASSWORD: `${API_PATH}/auth/reset-password`,
+//   VERIFY_EMAIL: `${API_PATH}/auth/verify-email`,
+//   CURRENT_USER: `${API_PATH}/auth/me`
+// };
+//
+// /**
+//  * User endpoints
+//  */
+// export const USER_ENDPOINTS = {
+//   BASE: `${API_PATH}/users`,
+//   BY_ID: (id: string) => `${API_PATH}/users/${id}`,
+//   UPDATE_PROFILE: `${API_PATH}/users/profile`,
+//   CHANGE_PASSWORD: `${API_PATH}/users/change-password`,
+//   UPLOAD_AVATAR: `${API_PATH}/users/avatar`
+// };
+//
+// /**
+//  * Task endpoints
+//  */
+// export const TASK_ENDPOINTS = {
+//   BASE: `${API_PATH}/tasks`,
+//   BY_ID: (id: string) => `${API_PATH}/tasks/${id}`,
+//   BY_STATUS: (status: string) => `${API_PATH}/tasks/status/${status}`,
+//   BY_USER: (userId: string) => `${API_PATH}/tasks/user/${userId}`,
+//   STATS: `${API_PATH}/tasks/stats`,
+//   RECENT: `${API_PATH}/tasks/recent`,
+//   OVERDUE: `${API_PATH}/tasks/overdue`,
+//   DUE_TODAY: `${API_PATH}/tasks/due-today`,
+//   SEARCH: `${API_PATH}/tasks/search`
+// };
+
 /**
  * API endpoints and configuration
  */
 
 /**
- * Base API URL - will be set from environment
+ * Base API URL - for in-memory API, use empty string or root
  */
-export const API_BASE_URL = '/api';
+export const API_BASE_URL = '';
 
 /**
  * API version
  */
-export const API_VERSION = 'v1';
+export const API_VERSION = '';
 
 /**
  * Full API path
  */
-export const API_PATH = `${API_BASE_URL}/${API_VERSION}`;
+export const API_PATH = `${API_BASE_URL}${API_VERSION}`;
 
 /**
  * Authentication endpoints
  */
 export const AUTH_ENDPOINTS = {
-  LOGIN: `${API_PATH}/auth/login`,
-  REGISTER: `${API_PATH}/auth/register`,
-  LOGOUT: `${API_PATH}/auth/logout`,
-  REFRESH_TOKEN: `${API_PATH}/auth/refresh`,
-  FORGOT_PASSWORD: `${API_PATH}/auth/forgot-password`,
-  RESET_PASSWORD: `${API_PATH}/auth/reset-password`,
-  VERIFY_EMAIL: `${API_PATH}/auth/verify-email`,
-  CURRENT_USER: `${API_PATH}/auth/me`
+  LOGIN: `/auth/login`,
+  REGISTER: `/auth/register`,
+  LOGOUT: `/auth/logout`,
+  REFRESH_TOKEN: `/auth/refresh`,
+  FORGOT_PASSWORD: `/auth/forgot-password`,
+  RESET_PASSWORD: `/auth/reset-password`,
+  VERIFY_EMAIL: `/auth/verify-email`,
+  CURRENT_USER: `/auth/me`
 };
 
 /**
  * User endpoints
  */
 export const USER_ENDPOINTS = {
-  BASE: `${API_PATH}/users`,
-  BY_ID: (id: string) => `${API_PATH}/users/${id}`,
-  UPDATE_PROFILE: `${API_PATH}/users/profile`,
-  CHANGE_PASSWORD: `${API_PATH}/users/change-password`,
-  UPLOAD_AVATAR: `${API_PATH}/users/avatar`
+  BASE: `/users`,
+  BY_ID: (id: string) => `/users/${id}`,
+  UPDATE_PROFILE: `/users/profile`,
+  CHANGE_PASSWORD: `/users/change-password`,
+  UPLOAD_AVATAR: `/users/avatar`
 };
 
 /**
  * Task endpoints
  */
 export const TASK_ENDPOINTS = {
-  BASE: `${API_PATH}/tasks`,
-  BY_ID: (id: string) => `${API_PATH}/tasks/${id}`,
-  BY_STATUS: (status: string) => `${API_PATH}/tasks/status/${status}`,
-  BY_USER: (userId: string) => `${API_PATH}/tasks/user/${userId}`,
-  STATS: `${API_PATH}/tasks/stats`,
-  RECENT: `${API_PATH}/tasks/recent`,
-  OVERDUE: `${API_PATH}/tasks/overdue`,
-  DUE_TODAY: `${API_PATH}/tasks/due-today`,
-  SEARCH: `${API_PATH}/tasks/search`
+  BASE: `/tasks`,
+  BY_ID: (id: string) => `/tasks/${id}`,
+  BY_STATUS: (status: string) => `/tasks/status/${status}`,
+  BY_USER: (userId: string) => `/tasks/user/${userId}`,
+  STATS: `/tasks/stats`,
+  RECENT: `/tasks/recent`,
+  OVERDUE: `/tasks/overdue`,
+  DUE_TODAY: `/tasks/due-today`,
+  SEARCH: `/tasks/search`
 };
-
 /**
  * HTTP Headers
  */
